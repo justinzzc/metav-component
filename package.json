@@ -1,7 +1,7 @@
 {
-  "name": "metav-component",
+  "name": "{{COMPONENT_NAME}}",
   "version": "1.0.0",
-  "description": "您的第一个MetaV组件",
+  "description": "{{COMPONENT_DESC}}",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

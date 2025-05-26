@@ -5,8 +5,18 @@ const { VueLoaderPlugin } = require('vue-loader/dist/index');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ZipPlugin = require('zip-webpack-plugin');
+const pkgInfo = require('./package.json');
 
 const publicPathReplace = '__metav_public_path__';
+
+function getTimeString() {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  return `${year}_${month}_${day}`;
+}
 
 function configCreate(env, argv) {
   /**
@@ -42,7 +52,7 @@ function configCreate(env, argv) {
       }),
       new ZipPlugin({
         path: path.resolve(__dirname, './dist'),
-        filename: 'component.zip'
+        filename: `${pkgInfo.name}-${pkgInfo.version}-${getTimeString()}.zip`
       })
     ]
   };
