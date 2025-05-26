@@ -1,4 +1,5 @@
-# 组件 metav-component
+# 组件 {{COMPONENT_NAME}}
+{{COMPONENT_DESC}}
 
 ## 运行
 
