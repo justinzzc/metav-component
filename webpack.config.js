@@ -25,6 +25,10 @@ function configCreate(env, argv) {
     module: {
       rules: [
         {
+          test: /\.tpl$/i,
+          type: 'asset/source'
+        },
+        {
           test: /\.vue$/, //解析vue 模板
           use: 'vue-loader'
         },

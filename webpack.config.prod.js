@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader/dist/index');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const ZipPlugin = require('zip-webpack-plugin');
 const pkgInfo = require('./package.json');
 
@@ -23,6 +24,19 @@ function configCreate(env, argv) {
    * @type {Configuration} //配置智能提示
    */
   const prodConfig = {
+    optimization: {
+      minimize: true,
+      minimizer: [
+        new TerserPlugin({
+          exclude: /(public[\/]|PlaygroundSource[\/])/,
+          terserOptions: {
+            format: {
+              comments: false
+            }
+          }
+        })
+      ]
+    },
     output: {
       libraryTarget: 'umd',
       filename: 'index.js',

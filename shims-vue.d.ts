@@ -6,6 +6,9 @@ declare module '*.vue' {
 
 declare const __metav_public_path__: string;
 
+declare module '*.tpl';
+declare module '*.json';
+
 declare module '*.png';
 declare module '*.svg';
 declare module '*.jpg';

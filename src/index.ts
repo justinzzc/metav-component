@@ -10,13 +10,30 @@ export default {
     dataSource: {},
     actions: [
       {
-        actionKey: 'changeMessage',
+        actionKey: 'resetCode',
         actionType: 'comp',
-        actionName: '修改文本',
+        actionName: '设置代码',
         params: [
           {
-            paramName: '文本',
-            paramKey: 'msg',
+            paramName: '代码',
+            paramKey: 'code',
+            valueType: 'string'
+          }
+        ]
+      },
+      {
+        actionKey:'runFrameAction',
+        actionType: 'comp',
+        actionName: '组件动作',
+        params: [
+          {
+            paramName: '名称',
+            paramKey: 'name',
+            valueType:'string'
+          },
+          {
+            paramName: '参数',
+            paramKey: 'value',
             valueType: 'string'
           }
         ]
@@ -24,14 +41,19 @@ export default {
     ],
     events: [
       {
-        eventKey: 'imgClick',
+        eventKey: 'frameEvent',
         eventType: 'comp',
-        eventName: '图片点击事件',
+        eventName: '组件事件',
         params: [
           {
-            paramName: '返回的消息文本',
-            paramKey: 'message',
+            paramName: '类型',
+            paramKey: 'type',
             valueType: 'string'
+          },
+          {
+            paramName: '参数',
+            paramKey: 'value',
+            valueType: 'object'
           }
         ]
       }
