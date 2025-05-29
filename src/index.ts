@@ -11,6 +11,7 @@ export default {
     actions: [
       {
         actionKey: 'changeMessage',
+        actionType: 'comp',
         actionName: '修改文本',
         params: [
           {
@@ -24,6 +25,7 @@ export default {
     events: [
       {
         eventKey: 'imgClick',
+        eventType: 'comp',
         eventName: '图片点击事件',
         params: [
           {
