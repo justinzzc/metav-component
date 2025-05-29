@@ -17,6 +17,12 @@ let actions, settings;
 let singleStepMode = false;
 let sizeOfNextStep = 0;
 
+METAV_FRAME_ACTIONS.sayHello=function(){
+  console.log("hello");
+
+  METAV_EVENTS.trigger("helloSayed","");
+}
+
 init();
 
 function init() {
@@ -58,7 +64,7 @@ function init() {
   scene.add( mesh );
 
   const loader = new GLTFLoader();
-  loader.load( PROPS.modelPath, function ( gltf ) {
+  loader.load( METAV_PROPS.modelPath, function ( gltf ) {
 
     model = gltf.scene;
     scene.add( model );
