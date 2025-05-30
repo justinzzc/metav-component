@@ -136,6 +136,18 @@ onMounted(() => {
     if (showButtonMatch && showButtonMatch[1] == 'true') {
       showEditor.value = true;
     }
+
+    // 监听URL变化
+    window.addEventListener('popstate', () => {
+      const newCodeMatch = window.location.href.match(codeRegex);
+      const newCode = newCodeMatch ? decodeURIComponent(newCodeMatch[1]) : null;
+      if (newCode) {
+        resetCode(Utils.atou(newCode));
+      }
+      
+      const newShowButtonMatch = window.location.href.match(/[?&]show-button=([^&]*)/);
+      showEditor.value = newShowButtonMatch && newShowButtonMatch[1] == 'true' || false;
+    });
   } else {
     showEditor.value = true;
   }
