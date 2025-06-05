@@ -19,7 +19,7 @@ import { getCurrentInstance, onMounted, ref, watch } from 'vue';
 
 import TextConverter from './TextConverter.vue';
 import * as Utils from './utils';
-import PkgJson from '../../package.json';
+import PkgJson from '../package.json';
 
 const frameId = `${PkgJson.name}-playground-${getCurrentInstance()?.uid}`;
 
